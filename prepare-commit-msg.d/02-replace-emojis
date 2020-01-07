@@ -1,0 +1,7 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+# COMMIT_SOURCE=$2
+# SHA1=$3
+
+sed -i '' 's/:bug:/🐞/g; s/:feature:/🦄/g; s/:hotfix:/🚑/g; s/:docs:/📚/g' "$COMMIT_MSG_FILE"

@@ -1,0 +1,14 @@
+#!/bin/sh
+
+COMMIT_MSG_FILE=$1
+# COMMIT_SOURCE=$2
+# SHA1=$3
+
+JIRA_TICKET="NoRef-0"
+GIT_BRANCH=$(command git symbolic-ref --quiet --short HEAD)
+
+if [[ $GIT_BRANCH =~ ^[a-zA-Z]+\-[0-9]+$ ]]; then
+    JIRA_TICKET=$GIT_BRANCH
+fi
+
+sed -i '' "1s;^;[$JIRA_TICKET] ;" "$COMMIT_MSG_FILE"
